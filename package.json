@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.7.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.8.1"
+  },
+  "name": "members_only",
+  "version": "1.0.0",
+  "description": "Secret chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FluffyRudy/members_only.git"
+  },
+  "author": "FluffyRudy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FluffyRudy/members_only/issues"
+  },
+  "homepage": "https://github.com/FluffyRudy/members_only#readme"
+}
