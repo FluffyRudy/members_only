@@ -8,7 +8,7 @@ export const LoginValidator = [
 export const SignupValidator = [
     body("username").trim().isEmail().withMessage("Email: invalid email"),
 
-    body("firstname").trim().isAlpha().withMessage("Firstname: Must be alphabet").isLength({ min: 3, max: 250 }).withMessage("Lastname Must be atleast three character long"),
+    body("firstname").trim().isAlpha().withMessage("Firstname: Must be alphabet").isLength({ min: 3, max: 250 }).withMessage("firstname Must be atleast three character long"),
 
     body("lastname").trim().isAlpha().withMessage("Lastname: Must be alphabet").isLength({ min: 3, max: 250 }).withMessage("Lastname Must be atleast three character long"),
 
