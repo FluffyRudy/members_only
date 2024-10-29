@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/errors.css">
+</head>
+<body>
+    <h1>Login Form</h1>
+    <% if (locals.errors?.userNotFound) { %>
+        <div class="error">
+            <p><%= locals.errors.userNotFound %> </p>
+        </div>
+    <% } %>  
+    <form action="/auth/login" method="POST">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input id="username" type="email" name="username" placeholder="Enter email" required>
+            <% if (locals.errors && locals.errors.username) { %>
+                <div class="error"><%= errors.username %></div>
+            <% } %>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password" placeholder="Enter password" required>
+            <% if (locals.errors && locals.errors.password) { %>
+                <div class="error"><%= errors.password %></div>
+            <% } %>
+        </div>
+        <div class="form-group">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+    
+</body>
+</html>

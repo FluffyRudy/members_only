@@ -3,21 +3,39 @@
     "bcryptjs": "^2.4.3",
     "connect-pg-simple": "^10.0.0",
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.0",
     "multer": "^1.4.5-lts.1",
     "passport": "^0.7.0",
-    "pg": "^8.13.1"
+    "passport-local": "^1.0.0",
+    "pg": "^8.13.1",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/connect-pg-simple": "^7.0.3",
     "@types/express": "^5.0.0",
-    "@types/node": "^22.8.1"
+    "@types/express-session": "^1.18.0",
+    "@types/node": "^22.8.1",
+    "@types/passport": "^1.0.16",
+    "@types/passport-local": "^1.0.38",
+    "@types/pg": "^8.11.10",
+    "@types/serve-favicon": "^2.5.7",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   },
   "name": "members_only",
   "version": "1.0.0",
   "description": "Secret chat",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node index.ts",
+    "build": "tsc",
+    "serve": "node dist/index.js",
+    "dev": "clear && nodemon  --watch './*.ts' --watch './controllers/**/*.ts' --watch './routers/**/*.ts' --watch './types/**/*.ts' --ext ts --exec 'ts-node index.ts'"
   },
   "repository": {
     "type": "git",
