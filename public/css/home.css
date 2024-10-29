@@ -6,7 +6,16 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(
+    45deg,
+    #1abc9c,
+    #1a3636,
+    #40534c,
+    #677d6a,
+    #3498db
+  );
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s linear infinite; /* Changed to linear */
   color: #333;
   display: flex;
   flex-direction: column;
@@ -19,7 +28,9 @@ body {
 h1 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #007bff;
+  color: #ffffff;
+  font-weight: bolder;
+  text-transform: capitalize;
 }
 
 button {
@@ -31,10 +42,12 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-weight: bold;
 }
 
 button:hover {
   background-color: #218838;
+  font-weight: bolder;
 }
 
 @media (max-width: 768px) {
@@ -55,5 +68,23 @@ button:hover {
 
   button {
     width: 100%;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 100%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
   }
 }
