@@ -6,40 +6,18 @@
 
 body {
   font-family: "Arial", sans-serif;
-  background: linear-gradient(
-    135deg,
-    #6a11cb 0%,
-    #2575fc 100%,
-    #ff7e5f 50%,
-    #feb47b 75%
-  );
+  background: linear-gradient(to right, #6a11cb, #2575fc);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  margin: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-h1 {
-  font-size: 3rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-p {
-  font-size: 1.5rem;
-  margin-top: 10px;
-  text-align: center;
-  max-width: 600px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -47,10 +25,10 @@ form {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   animation: slideIn 0.5s ease-out;
-  width: min(400px, 97vw);
+  width: min(500px, 97vw);
 }
 
 .form-group {
@@ -67,36 +45,32 @@ label {
 input {
   width: 100%;
   padding: 10px;
-  border: 2px solid transparent;
+  border: none;
   border-radius: 5px;
   transition: border 0.3s;
 }
 
 input:focus {
   outline: none;
-  border: 2px solid lime;
-  font-weight: bolder;
+  border: 2px solid #6a11cb;
 }
 
 .error {
   color: #ff5e5e;
   font-size: 0.9rem;
-  margin-bottom: 20px;
-  font-weight: bolder;
+  position: absolute;
+  bottom: -20px;
 }
 
 button {
   padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
-  background-color: lime;
+  background-color: #ff4d4d;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  font-weight: bolder;
-  display: block;
-  width: 100%;
 }
 
 button:hover {
@@ -121,5 +95,21 @@ button:hover {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    width: 100%;
   }
 }
