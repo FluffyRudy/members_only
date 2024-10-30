@@ -7,7 +7,7 @@ import connectPgSession from "connect-pg-simple";
 import { Strategy } from "passport-local";
 import { join } from "path";
 import { config } from "dotenv";
-import { User } from "./types/users";
+import { User } from "./types/user";
 import authRouter from "./routers/authRouter";
 import homeRouter from "./routers/homeRouter"
 import { poolInstance } from "./db/dbClient"

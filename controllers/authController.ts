@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import { poolInstance } from "../db/dbClient";
 import { randint } from "../utils/random";
 import { formatValidationErrors } from "../validator/formatter";
-import { User } from "../types/users";
+import { User } from "../types/user";
 
 export const userLoginGet = async (req: Request, res: Response) => {
     res.render("login");
