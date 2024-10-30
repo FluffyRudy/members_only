@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+nav {
+  background: linear-gradient(135deg, #1e1e1e, #2e2e2e, #4d4d4d, #333);
+  background-size: 300% 300%;
+  animation: navGradientAnimation 15s linear infinite;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: min(400px, 97vw);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+nav div {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+nav li {
+  margin: 12px 0;
+  padding: 8px 0;
+  text-align: center;
+}
+
+nav li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 8px;
+  display: block;
+  font-weight: 400;
+}
+
+nav li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #cfcfcf;
+}
+
+#toggleButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: #2e2e2e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 10;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  z-index: 10;
+}
+
+#logout {
+  color: white;
+  font-weight: bolder;
+}
+
+@keyframes navGradientAnimation {
+  0% {
+    background-position: 0% 100%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}

@@ -1,22 +1,19 @@
+@import url("./navbar.css");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(
-    45deg,
-    #1abc9c,
-    #1a3636,
-    #40534c,
-    #677d6a,
-    #3498db
-  );
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s linear infinite; /* Changed to linear */
+  background: linear-gradient(135deg, #1e1e1e, #2e2e2e, #4d4d4d, #333);
+  background-size: 300% 300%;
+  animation: gradientAnimation 15s linear infinite;
   color: #333;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
