@@ -9,8 +9,8 @@
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
             <li>
-                <form id="logout" action="/auth/logout" method="get">
-                    <button>Logout</button>
+                <form id="logout-form" action="/auth/logout" method="get">
+                    <button class="logout">Logout</button>
                 </form>
             </li>
         </ul>
@@ -26,11 +26,11 @@
         if (navbar.style.transform === 'translateX(0%)') {
             navbar.style.transform = 'translateX(-100%)';
             toggleButton.textContent = 'Menu';
-            toggleButton.style.backgroundColor = "#2e2e2e"; // Optional, can be set in CSS
+            toggleButton.style.backgroundColor = "#2e2e2e";
         } else {
             navbar.style.transform = 'translateX(0%)'; 
             toggleButton.textContent = 'Close'; 
-            toggleButton.style.backgroundColor = "#ff0000"; // Optional, can be set in CSS
+            toggleButton.style.backgroundColor = "#ff0000";
         }
     });
 </script>

@@ -1,3 +1,5 @@
+@import url("./navbar.css");
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +10,9 @@ body {
   font-family: "Arial", sans-serif;
   background: linear-gradient(to right, #6a11cb, #2575fc);
   color: #fff;
+}
+
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,14 +26,14 @@ h1 {
   animation: fadeIn 1s ease-in-out;
 }
 
-form {
+#login-form {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   animation: slideIn 0.5s ease-out;
-  width: min(500px, 97vw);
+  width: min(400px, 97vw);
 }
 
 .form-group {
@@ -62,18 +67,22 @@ input:focus {
   bottom: -20px;
 }
 
-button {
+.login {
   padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
-  background-color: #ff4d4d;
+  background-color: lime;
+  font-weight: bolder;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  display: block;
+  margin: auto;
+  width: 100%;
 }
 
-button:hover {
+.login:hover {
   background-color: #ff1a1a;
   transform: scale(1.05);
 }

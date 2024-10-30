@@ -13,15 +13,6 @@ body {
   color: #333;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-}
-
 h1 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -45,6 +36,19 @@ button {
 button:hover {
   background-color: #218838;
   font-weight: bolder;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.fullname {
+  color: tomato;
 }
 
 @media (max-width: 768px) {

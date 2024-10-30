@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="/css/home.css" />
   </head>
   <body>
-    <%- include("./partials/navbar.ejs") %> 
+    <%- include("./partials/navbar.ejs") %>
     <div class="container">
       <% if (locals.user) { %>
-      <h1>Hello, <%= locals.user.firstname + " " + locals.user.lastname %></h1>
+      <h1>
+        Hello,
+        <span class="fullname"
+          ><%= locals.user.firstname + " " + locals.user.lastname %></span
+        >
+      </h1>
       <% } else { %>
-      <h1>Hello, Anonymous User</h1>
+      <h1>Hello, <span class="fullname">Anonymous User</span></h1>
       <form action="/auth/login" method="get">
         <button>Login</button>
       </form>
