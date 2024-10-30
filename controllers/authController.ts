@@ -74,11 +74,11 @@ export const userSignUpPost = async (
 
         res.redirect("/");
     } catch (err) {
-        next(err);
+        next(new Error("An user with this email already exists"));
     }
 };
 
-export const userLogoutPost = async (req: Request, res: Response, next: NextFunction) => {
+export const userLogoutGet = async (req: Request, res: Response, next: NextFunction) => {
     req.logOut((error) => {
         if (error) {
             return next(error);
