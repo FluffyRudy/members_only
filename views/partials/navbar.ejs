@@ -33,4 +33,14 @@
             toggleButton.style.backgroundColor = "#ff0000";
         }
     });
+
+    toggleButton.onmouseover = () => {
+        toggleButton.style.backgroundColor = "lime";
+        toggleButton.style.fontWeight = "bolder";
+    }
+
+    toggleButton.onmouseleave = () => {
+        toggleButton.style.backgroundColor = "#2e2e2e";
+        toggleButton.style.fontWeight = "600";
+    }
 </script>

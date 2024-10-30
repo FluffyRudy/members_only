@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
     <%- include("partials/navbar.ejs") %> 
     <div class="container">
         <h1>Login Form</h1>
-        <% if (locals.errors?.userNotFound) { %>
+        <% if (locals.errors) { %>
             <div class="error">
-                <p><%= locals.errors.userNotFound %> </p>
+                <h2><%= locals.errors.userNotFound %> </h2>
             </div>
         <% } %>  
         <form id="login-form" action="/auth/login" method="POST">
