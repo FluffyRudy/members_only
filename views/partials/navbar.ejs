@@ -24,23 +24,27 @@
 
     toggleButton.addEventListener('click', () => {
         if (navbar.style.transform === 'translateX(0%)') {
+            navbar.classList.toggle("visible");
             navbar.style.transform = 'translateX(-100%)';
             toggleButton.textContent = 'Menu';
             toggleButton.style.backgroundColor = "#2e2e2e";
         } else {
+            navbar.classList.toggle("visible")
             navbar.style.transform = 'translateX(0%)'; 
-            toggleButton.textContent = 'Close'; 
+            toggleButton.textContent = 'Close';
             toggleButton.style.backgroundColor = "#ff0000";
         }
     });
 
-    toggleButton.onmouseover = () => {
-        toggleButton.style.backgroundColor = "lime";
-        toggleButton.style.fontWeight = "bolder";
+    toggleButton.onmouseenter = () => {
+        if (!navbar.classList.contains("visible")) {
+            toggleButton.style.backgroundColor = "lime";
+        }
     }
 
     toggleButton.onmouseleave = () => {
-        toggleButton.style.backgroundColor = "#2e2e2e";
-        toggleButton.style.fontWeight = "600";
+        if (!navbar.classList.contains("visible")) {
+            toggleButton.style.backgroundColor = "#2e2e2e";
+        }
     }
 </script>
