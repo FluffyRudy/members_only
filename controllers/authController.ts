@@ -25,6 +25,7 @@ export const userLoginPost = async (
     }
 
     passport.authenticate("local", (err: Error, user: User, info: { message?: string, code?: string }) => {
+        if (err) return next(err);
         if (!user) {
             res.render("login", { errors: { userNotFound: "User not found" } });
             return;
