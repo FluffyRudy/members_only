@@ -83,8 +83,8 @@ app.use((req, res, next) => {
 app.use("/", homeRouter);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    res.status(500).send("Something went wrong" + (err?.message || ""))
-})
+    res.status(500).render("error", { errorMessage: err?.message || "Something went wrong" });
+});
 
 app.listen(3000, () => {
     console.log("Listening at: http://localhost:3000")
