@@ -1,8 +1,14 @@
+export enum MemberStatus {
+    PENDING = "pending",
+    APPROVED = "approved",
+}
+
 export interface User {
-    id: Number,
-    username: string,
-    firstname: string,
-    lastname: string
-    password: string,
-    isAdmin: boolean
+    id: number;
+    username: string;
+    firstname: string;
+    lastname: string;
+    password: string;
+    isAdmin?: boolean;
+    memberStatus: MemberStatus;
 }
