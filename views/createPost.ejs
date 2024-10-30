@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="/css/create-post.css">
 </head>
 <body>
+    <%- include("partials/navbar.ejs") %> 
     <div class="form-container">
         <h1>Create a New Post</h1>
-        <form id="create-post-form" action="/post/create-post" method="POST">
+        <form class="form" id="create-post-form" action="/post/create-post" method="POST">
             <div class="form-group">
-                <label for="title">Title</label>
+                <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
+                <p class="error"><%= locals.errors?.title %></p>
             </div>
             <div class="form-group">
-                <label for="content">Content</label>
+                <label for="content">Content:</label>
                 <textarea id="content" name="content" rows="5" required></textarea>
+                <p class="error"><%= locals.errors?.content %></p>
             </div>
             <button type="submit">Submit</button>
         </form>
