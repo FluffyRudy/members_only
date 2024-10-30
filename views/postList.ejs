@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="/css/postlist.css">
+</head>
+<body>
+    <%- include("partials/navbar.ejs") %>
+    <h1 class="title">Posts</h1> 
+    <div class="container">
+        <div class="posts">
+            <% if (locals.posts && locals.posts.length > 0) { %>
+                <% locals.posts.forEach(function(post) { %>
+                    <div class="post">
+                        <h2><%= post.title %></h2>
+                        <p><%= post.content %></p>
+                        <p><strong>User ID:</strong> <%= post.user_id %></p>
+                        <p><em>Created At: <%= post.create_at.toLocaleString() %></em></p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No posts available.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

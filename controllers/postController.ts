@@ -7,14 +7,14 @@ import { formatValidationErrors } from "../validator/formatter";
 import { poolInstance } from "../db/dbClient"
 
 export const createPostGet = (req: Request, res: Response, next: NextFunction) => {
-    if (!req.user) {
+    if (!req.isAuthenticated()) {
         return next(new Error("Unauthorized access"));
     }
     res.render("createPost");
 }
 
 export const createPostPost = async (req: Request, res: Response, next: NextFunction) => {
-    if (!req.user) {
+    if (!req.isAuthenticated()) {
         return next(new Error("401 Unauthorized access"))
     }
 
@@ -38,4 +38,19 @@ export const createPostPost = async (req: Request, res: Response, next: NextFunc
     } catch (err) {
         return next(new Error("Internal server error. Report owner"));
     }
+}
+
+export const listPostGet = async (req: Request, res: Response, next: NextFunction) => {
+    if (!req.isAuthenticated()) {
+        return next(new Error("Unauthorized access"));
+    }
+
+    const queryString = `SELECT * FROM posts ORDER BY create_at LIMIT $1 OFFSET $2;`
+    const fetchResult: QueryResult<Post> | undefined = await poolInstance.getPool().query(queryString, [5, 0]);
+
+    if (fetchResult && fetchResult?.rowCount === 0) {
+        res.render("postList", { posts: [] });
+        return;
+    }
+    res.render("postList", { posts: fetchResult.rows })
 }
