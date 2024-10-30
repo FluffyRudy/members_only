@@ -6,9 +6,10 @@ import { Post } from "../types/post";
 import { formatValidationErrors } from "../validator/formatter";
 import { poolInstance } from "../db/dbClient"
 
-export const createPostGet = (req: Request, res: Response) => {
-    if (!req.user)
-        res.redirect("/auth/login");
+export const createPostGet = (req: Request, res: Response, next: NextFunction) => {
+    if (!req.user) {
+        return next(new Error("Unauthorized access"));
+    }
     res.render("createPost");
 }
 
@@ -31,10 +32,10 @@ export const createPostPost = async (req: Request, res: Response, next: NextFunc
     try {
         const insertedResult: QueryResult<Post> | undefined = await poolInstance.getPool().query(queryString, [title, content, userId]);
         if (insertedResult && insertedResult?.rowCount === 0) {
-            return next("Failed to create post...")
+            return next(new Error("Failed to create post..."))
         }
         res.redirect("/");
     } catch (err) {
-        return next((err as Error));
+        return next(new Error("Internal server error. Report owner"));
     }
 }
