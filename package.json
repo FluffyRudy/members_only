@@ -24,6 +24,8 @@
     "@types/pg": "^8.11.10",
     "@types/serve-favicon": "^2.5.7",
     "nodemon": "^3.1.7",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^5.0.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
@@ -33,10 +35,17 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node index.ts",
-    "build": "tsc",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
     "serve": "node dist/index.js",
     "dev": "clear && nodemon  --watch './*.ts' --watch './controllers/**/*.ts' --watch './routers/**/*.ts' --watch './types/**/*.ts' --ext ts --exec 'ts-node index.ts'"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FluffyRudy/members_only.git"
