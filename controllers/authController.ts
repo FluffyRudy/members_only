@@ -73,7 +73,7 @@ export const userSignUpPost = async (
                 "pending",
             ]);
 
-        res.redirect("/");
+        res.redirect("/auth/login");
     } catch (err) {
         next(new Error("An user with this email already exists"));
     }

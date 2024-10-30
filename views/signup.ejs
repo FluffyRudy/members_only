@@ -42,9 +42,14 @@
                     <div class="error"><%= locals.errors.password %></div>
                 <% } %>
             </div>
-
             <button class="submit" type="submit">Sign Up</button>
         </form>
+        <div class="login-msg-option">
+            <p>Already registered?</p>
+            <form action="/auth/login" method="get">
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

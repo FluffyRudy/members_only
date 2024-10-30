@@ -66,11 +66,12 @@ input:focus {
   bottom: -20px;
 }
 
-.login {
+.login,
+.signup-msg-option button {
   padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
-  background-color: lime;
+  background-color: #2e2e2e;
   font-weight: bolder;
   border: none;
   border-radius: 5px;
@@ -81,9 +82,28 @@ input:focus {
   width: 100%;
 }
 
-.login:hover {
-  background-color: #ff1a1a;
+.login:hover,
+.signup-msg-option button:hover {
+  background-color: lime;
   transform: scale(1.05);
+}
+
+.signup-msg-option {
+  margin-top: 1vmax;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: min(22px, 2vmax);
+  align-items: center;
+}
+
+.signup-msg-option p {
+  font-weight: bolder;
+  color: tomato;
+}
+
+.signup-msg-option button {
+  background-color: #2e2e2e;
 }
 
 @keyframes fadeIn {

@@ -91,11 +91,12 @@ input:focus {
   font-weight: bolder;
 }
 
-.submit {
+.submit,
+.login-msg-option button {
   padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
-  background-color: lime;
+  background-color: #2e2e2e;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -105,9 +106,18 @@ input:focus {
   width: 100%;
 }
 
-.submit:hover {
-  background-color: #ff1a1a;
+.submit:hover,
+.login-msg-option button:hover {
+  background-color: lime;
   transform: scale(1.05);
+}
+
+.login-msg-option {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1vmax;
 }
 
 @keyframes fadeIn {

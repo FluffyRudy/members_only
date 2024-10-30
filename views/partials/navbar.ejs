@@ -6,12 +6,13 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/post/create-post">Create Post</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/post/list">List Posts</a></li>
             <li>
-                <form id="logout-form" action="/auth/logout" method="get">
-                    <button class="logout">Logout</button>
-                </form>
+                <% if (locals.user) { %>
+                    <form id="logout-form" action="/auth/logout" method="get">
+                        <button class="logout">Logout</button>
+                    </form>
+                <% } %>
             </li>
         </ul>
     </nav>
