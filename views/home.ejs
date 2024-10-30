@@ -16,12 +16,16 @@
           ><%= locals.user.firstname + " " + locals.user.lastname %></span
         >
       </h1>
+      <p class="catch-msg">Explore the latest anonymous posts from our community</p>
       <% } else { %>
       <h1>Hello, <span class="fullname">Anonymous User</span></h1>
+      <p class="catch-msg">Log in to explore and create new anonymous post.</p>
       <form action="/auth/login" method="get">
         <button>Login</button>
       </form>
       <% } %>
     </div>
   </body>
+  <script>
+  </script>
 </html>
