@@ -30,11 +30,11 @@ export const createPostPost = async (req: Request, res: Response, next: NextFunc
 
     try {
         const insertedResult: QueryResult<Post> | undefined = await poolInstance.getPool().query(queryString, [title, content, userId]);
-        if (insertedResult && insertedResult.rowCount) {
+        if (insertedResult && insertedResult?.rowCount === 0) {
             return next("Failed to create post...")
         }
-        res.redirect("/posts");
+        res.redirect("/");
     } catch (err) {
-        return next((err as Error).message);
+        return next((err as Error));
     }
 }

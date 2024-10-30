@@ -9,7 +9,8 @@ import { join } from "path";
 import { config } from "dotenv";
 import { User } from "./types/user";
 import authRouter from "./routers/authRouter";
-import homeRouter from "./routers/homeRouter"
+import homeRouter from "./routers/homeRouter";
+import postRouter from "./routers/postRouter";
 import { poolInstance } from "./db/dbClient"
 
 config();
@@ -81,6 +82,7 @@ app.use((req, res, next) => {
     next();
 })
 app.use("/", homeRouter);
+app.use("/post", postRouter);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).render("error", { errorMessage: err?.message || "Something went wrong" });
