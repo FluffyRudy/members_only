@@ -2,10 +2,10 @@ import { Router } from "express";
 import {
     userLoginGet,
     userLoginPost,
-    userLogoutPost,
+    userLogoutGet,
     userSignUpGet,
     userSignUpPost
-} from "../controllers/userController";
+} from "../controllers/authController";
 
 import { LoginValidator, SignupValidator } from "../validator/formValidator";
 
@@ -17,6 +17,6 @@ router.post("/login", LoginValidator, userLoginPost);
 router.get("/signup", userSignUpGet);
 router.post("/signup", SignupValidator, userSignUpPost);
 
-router.post("/logout", userLogoutPost);
+router.get("/logout", userLogoutGet);
 
 export default router;

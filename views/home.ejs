@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="/css/home.css" />
   </head>
   <body>
-    <% if (locals.user) { %>
-    <h1>Hello, <%= locals.user.firstname + " " + locals.user.lastname %></h1>
-    <form action="/auth/logout" method="post">
-      <button>Logout</button>
-    </form>
-    <% } else { %>
-        <h1>Hello, Anonymous User</h1>
-        <form action="/auth/login" method="get">
-          <button>Login</button>
-        </form>
-    <% } %> 
+    <%- include("./partials/navbar.ejs") %> 
+    <div class="container">
+      <% if (locals.user) { %>
+      <h1>Hello, <%= locals.user.firstname + " " + locals.user.lastname %></h1>
+      <% } else { %>
+      <h1>Hello, Anonymous User</h1>
+      <form action="/auth/login" method="get">
+        <button>Login</button>
+      </form>
+      <% } %>
+    </div>
   </body>
 </html>
