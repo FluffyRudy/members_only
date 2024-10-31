@@ -1,21 +1,16 @@
-import { Request, Response, NextFunction } from "express";
-import { validationResult } from "express-validator";
-import passport from "passport";
-import bcrypt from "bcryptjs";
-import { poolInstance } from "../db/dbClient";
-import { randint } from "../utils/random";
-import { formatValidationErrors } from "../validator/formatter";
-import { User } from "../types/user";
+const express = require("express");
+const { validationResult } = require("express-validator");
+const passport = require("passport");
+const bcrypt = require("bcryptjs");
+const { poolInstance } = require("../db/dbClient");
+const { randint } = require("../utils/random");
+const { formatValidationErrors } = require("../validator/formatter");
 
-export const userLoginGet = async (req: Request, res: Response) => {
+const userLoginGet = async (req, res) => {
     res.render("login");
 };
 
-export const userLoginPost = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-) => {
+const userLoginPost = async (req, res, next) => {
     const validatorResult = validationResult(req);
     if (!validatorResult.isEmpty()) {
         res.render("login", {
@@ -24,30 +19,26 @@ export const userLoginPost = async (
         return;
     }
 
-    passport.authenticate("local", (err: Error, user: User, info: { message?: string, code?: string }) => {
+    passport.authenticate("local", (err, user, info) => {
         if (err) return next(err);
         if (!user) {
             res.render("login", { errors: { userNotFound: "User not found" } });
             return;
         }
-        req.logIn(user, (loginError: Error) => {
+        req.logIn(user, (loginError) => {
             if (loginError) {
                 return next(loginError);
             }
             return res.redirect("/");
-        })
+        });
     })(req, res, next);
 };
 
-export const userSignUpGet = (req: Request, res: Response) => {
+const userSignUpGet = (req, res) => {
     res.render("signup");
 };
 
-export const userSignUpPost = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-) => {
+const userSignUpPost = async (req, res, next) => {
     const validatorResult = validationResult(req);
     if (!validatorResult.isEmpty()) {
         res.render("signup", {
@@ -79,11 +70,20 @@ export const userSignUpPost = async (
     }
 };
 
-export const userLogoutGet = async (req: Request, res: Response, next: NextFunction) => {
+const userLogoutGet = async (req, res, next) => {
     req.logOut((error) => {
         if (error) {
             return next(error);
         }
     });
-    res.redirect("/")
-}
+    res.redirect("/");
+};
+
+module.exports = {
+    userLoginGet,
+    userLoginPost,
+    userSignUpGet,
+    userSignUpPost,
+    userLogoutGet
+};
+
