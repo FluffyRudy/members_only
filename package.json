@@ -28,6 +28,10 @@
   "version": "1.0.0",
   "description": "Secret chat",
   "main": "index.cjs",
+  "engines": {
+    "start": "node index.cjs",
+    "node": "18.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
