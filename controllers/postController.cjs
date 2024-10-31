@@ -35,7 +35,7 @@ const createPostPost = async (req, res, next) => {
     if (insertedResult && insertedResult.rowCount === 0) {
       return next(new Error("Failed to create post..."));
     }
-    res.redirect("/");
+    res.redirect("/post/list");
   } catch (err) {
     return next(new Error("Internal server error. Report owner"));
   }
@@ -56,8 +56,33 @@ const listPostGet = async (req, res, next) => {
   res.render("postList", { posts: fetchResult.rows });
 };
 
+const deletePostPost = async (req, res) => {
+  if (!req.isAuthenticated() || !req.user.is_admin) {
+    return next(new Error("Unauthorized access"));
+  }
+
+  if (!req.params.id) {
+    return next(new Error("Unauthorized access"));
+  }
+
+  const queryString = `DELETE FROM posts WHERE id=$1`;
+  try {
+    const deleteResult = await poolInstance
+      .getPool()
+      .query(queryString, [req.params.id]);
+    if (deleteResult && deleteResult.rowCount > 0) {
+      res.redirect("/post/list");
+    } else {
+      return next(new Error("Sorry something went wrong"));
+    }
+  } catch (error) {
+    return next(new Error(error));
+  }
+};
+
 module.exports = {
   createPostGet,
   createPostPost,
   listPostGet,
+  deletePostPost,
 };

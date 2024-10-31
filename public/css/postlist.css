@@ -5,6 +5,7 @@ body {
   color: #d0d0d0;
   font-family: Arial, sans-serif;
   min-height: 100vh;
+  margin: 0;
 }
 
 .container {
@@ -49,4 +50,19 @@ body {
 .post p {
   margin: 0.5rem 0;
   color: #d0d0d0;
+}
+
+.delete-post {
+  transition: all 0.2s ease;
+  background-color: #3e3e3e;
+  color: white;
+  font-weight: bolder;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.delete-post:hover {
+  background-color: red;
 }
