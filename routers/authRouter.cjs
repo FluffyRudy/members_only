@@ -1,13 +1,15 @@
-import { Router } from "express";
-import {
-    userLoginGet,
-    userLoginPost,
-    userLogoutGet,
-    userSignUpGet,
-    userSignUpPost
-} from "../controllers/authController";
-
-import { LoginValidator, SignupValidator } from "../validator/formValidator";
+const { Router } = require("express");
+const {
+  userLoginGet,
+  userLoginPost,
+  userLogoutGet,
+  userSignUpGet,
+  userSignUpPost,
+} = require("../controllers/authController.cjs");
+const {
+  LoginValidator,
+  SignupValidator,
+} = require("../validator/formValidator.cjs");
 
 const router = Router();
 
@@ -19,4 +21,4 @@ router.post("/signup", SignupValidator, userSignUpPost);
 
 router.get("/logout", userLogoutGet);
 
-export default router;
+module.exports = router;

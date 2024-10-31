@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-const { poolInstance } = require("../db/dbClient");
+const { poolInstance } = require("../db/dbClient.cjs");
 
 const createPostGet = (req, res, next) => {
   if (!req.isAuthenticated()) {

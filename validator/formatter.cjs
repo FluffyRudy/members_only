@@ -1,6 +1,7 @@
-export const formatValidationErrors = (errors) => {
+const formatValidationErrors = (errors) => {
   return errors.reduce((acc, error) => {
     acc[error.path] = error.msg;
     return acc;
   }, {});
 };
+module.exports = { formatValidationErrors };

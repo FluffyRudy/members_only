@@ -1,11 +1,15 @@
-import { Router } from "express";
-import { createPostGet, createPostPost, listPostGet } from "../controllers/postController";
-import { postValidator } from "../validator/postValidator";
+const express = require("express");
+const {
+  createPostGet,
+  createPostPost,
+  listPostGet,
+} = require("../controllers/postController.cjs");
+const { postValidator } = require("../validator/postValidator.cjs");
 
-const router = Router();
+const router = express.Router();
 
 router.get("/list", listPostGet);
 router.get("/create-post", createPostGet);
 router.post("/create-post", postValidator, createPostPost);
 
-export default router;
+module.exports = router;

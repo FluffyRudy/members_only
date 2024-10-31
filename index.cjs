@@ -7,10 +7,10 @@ const connectPgSession = require("connect-pg-simple")(session);
 const { Strategy } = require("passport-local");
 const { join } = require("path");
 const { config } = require("dotenv");
-const authRouter = require("./routers/authRouter");
-const homeRouter = require("./routers/homeRouter");
-const postRouter = require("./routers/postRouter");
-const { poolInstance } = require("./db/dbClient");
+const authRouter = require("./routers/authRouter.cjs");
+const homeRouter = require("./routers/homeRouter.cjs");
+const postRouter = require("./routers/postRouter.cjs");
+const { poolInstance } = require("./db/dbClient.cjs");
 
 config();
 

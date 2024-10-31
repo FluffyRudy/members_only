@@ -1,8 +1,8 @@
-import { Router } from "express";
-import { homepageGet } from "../controllers/homeController";
+const { Router } = require("express");
+const { homepageGet } = require("../controllers/homeController.cjs");
 
 const router = Router();
 
 router.get("/", homepageGet);
 
-export default router;
+module.exports = router;
