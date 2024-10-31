@@ -6,7 +6,7 @@ config();
 class PGPool {
   constructor() {
     this.pool = new Pool({
-      connectionString: process.env.CONNECTION_STRING,
+      connectionString: process.env.CONNECTION_STRING_PROD,
     });
   }
 
