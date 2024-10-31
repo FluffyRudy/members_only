@@ -24,8 +24,6 @@
     "@types/pg": "^8.11.10",
     "@types/serve-favicon": "^2.5.7",
     "nodemon": "^3.1.7",
-    "pre-commit": "^1.2.2",
-    "rimraf": "^5.0.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
