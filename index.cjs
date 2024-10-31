@@ -23,6 +23,7 @@ app.set("views", join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.set("trust proxy", 1);
 app.use(
   session({
     secret: process.env.SESSION_COOKIE_SECRET,
@@ -80,6 +81,7 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
+app.get("/favicon.ico", (req, res) => res.status(204).end());
 app.use("/auth", authRouter);
 app.use((req, res, next) => {
   res.locals.user = req.user;
@@ -94,6 +96,7 @@ app.use((err, req, res, next) => {
     .render("error", { errorMessage: err?.message || "Something went wrong" });
 });
 
-app.listen(3000, () => {
-  console.log("Listening at: http://localhost:3000");
+const PORT = Number(process.env.PORT);
+app.listen(PORT, () => {
+  console.log(`Listening at: http://localhost:${PORT}`);
 });
