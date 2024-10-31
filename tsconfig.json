@@ -8,10 +8,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "./*.ts",
-    "./controllers/**/*.ts",
-    "./routers/**/*.ts",
-    "./types/**/*.ts"
-  ]
+  "include": ["./**/*"]
 }

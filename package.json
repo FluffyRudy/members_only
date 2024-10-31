@@ -33,7 +33,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node index.ts",
-    "build": "tsc",
+    "build": "tsc && cp -r ./views/ ./dist && cp -r ./public ./dist",
     "serve": "node dist/index.js",
     "dev": "clear && nodemon  --watch './*.ts' --watch './controllers/**/*.ts' --watch './routers/**/*.ts' --watch './types/**/*.ts' --ext ts --exec 'ts-node index.ts'"
   },
