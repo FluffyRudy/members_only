@@ -32,7 +32,7 @@
   "description": "Secret chat",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && cp -r public dist/public",
+    "build": "tsc",
     "start": "ts-node index.ts",
     "dev": "clear && nodemon  --watch './*.ts' --watch './controllers/**/*.ts' --watch './routers/**/*.ts' --watch './types/**/*.ts' --ext ts --exec 'ts-node index.ts'"
   },
