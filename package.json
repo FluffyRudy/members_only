@@ -32,18 +32,10 @@
   "description": "Secret chat",
   "main": "index.js",
   "scripts": {
+    "build": "tsc && cp -r public dist/public",
     "start": "ts-node index.ts",
-    "build": "rimraf dist && tsc",
-    "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add dist",
-    "serve": "node dist/index.js",
     "dev": "clear && nodemon  --watch './*.ts' --watch './controllers/**/*.ts' --watch './routers/**/*.ts' --watch './types/**/*.ts' --ext ts --exec 'ts-node index.ts'"
   },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FluffyRudy/members_only.git"
