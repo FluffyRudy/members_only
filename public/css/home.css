@@ -57,6 +57,16 @@ button:hover {
   word-wrap: break-word;
 }
 
+.post-options {
+  display: flex;
+  width: min(400px, 97vw);
+  justify-content: space-around;
+}
+
+.post-options form button {
+  flex: 1;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 1.5rem;

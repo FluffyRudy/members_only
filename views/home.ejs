@@ -17,6 +17,14 @@
         >
       </h1>
       <p class="catch-msg">Explore the latest anonymous posts from our community</p>
+      <div class="post-options">
+        <form action="/post/create-post" method="get">
+          <button>Create New Post</button>
+        </form>
+        <form action="/post/list" method="get">
+          <button>View Posts</button>
+        </form>
+      </div>
       <% } else { %>
       <h1>Hello, <span class="fullname">Anonymous User</span></h1>
       <p class="catch-msg">Log in to explore and create new anonymous post.</p>
