@@ -19,9 +19,9 @@ const app = express();
 const pgSession = connectPgSession(session)
 const pgPool = poolInstance.getPool()
 
-app.use(express.static(join(process.cwd(), "public")))
-app.use(favicon(join(process.cwd(), "public", "favicon.ico")))
-app.set("views", join(process.cwd(), "views"));
+app.use(express.static(join(__dirname, "public")))
+app.use(favicon(join(__dirname, "public", "favicon.ico")))
+app.set("views", join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
